@@ -41,7 +41,9 @@ class AWSLogsStub {
             if (Objects.nonNull(cloudWatchEndpoint)) {
                 AwsClientBuilder.EndpointConfiguration endpointConfiguration = new AwsClientBuilder.EndpointConfiguration(
                         cloudWatchEndpoint, logRegion);
+                ClientConfiguration cc  = new Object();
                 builder.setEndpointConfiguration(endpointConfiguration);
+                builder.setClientConfiguration(cc);
             } else {
                 Optional.ofNullable(logRegion).ifPresent(builder::setRegion);
             }
